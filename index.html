@@ -138,7 +138,8 @@ function rollDice(playerId){
         if(rollCount < 30){
         requestAnimationFrame(interval)
         }
-    }; // speed (lower = faster roll)
+    };
+    interval();// speed (lower = faster roll)
 }
 </script>
 </body>
