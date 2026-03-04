@@ -145,6 +145,23 @@ function rollDice(playerId){
 
     }, 10); // speed (lower = faster roll)
 }
+
+    
+    const diceImages = {};
+    const images1 = {};
+
+for (let i = 1; i <= 8; i++) {
+    const img = new Image();
+    img.src = `dice/dice${i}.png`;
+    diceImages[i] = img;
+}
+
+
+for (let j = 1; j <= 6; j++) {
+    const img = new Image();
+    img.src = `dice/image${j}.png`;
+    images1[j] = img;
+}
 </script>
 </body>
 
