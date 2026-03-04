@@ -1,0 +1,73 @@
+<style>
+    body{
+    background:#222;
+    text-align:center;
+    margin-top:100px;
+}
+
+.dice-box img{
+    width:120px;
+    height:120px;
+    transition: transform 0.2s;
+}
+
+.roll{
+    animation: shake 0.4s infinite;
+}
+
+@keyframes shake{
+    0%{ transform: rotate(0deg); }
+    25%{ transform: rotate(20deg); }
+    50%{ transform: rotate(-20deg); }
+    75%{ transform: rotate(10deg); }
+    100%{ transform: rotate(0deg); }
+}
+
+button{
+    margin-top:20px;
+    padding:10px 20px;
+    font-size:18px;
+}
+</style>
+<div onclick="rollDice()" class="dice-box">
+    <img onclick="rollDice" id="dice" src="dice/dice1.png">
+</div>
+
+<script>
+    const dice = document.getElementById("dice");
+
+let rolling = false;
+
+function rollDice(){
+
+    if(rolling) return;
+    rolling = true;
+
+    //dice.classList.add("roll");
+
+    let rollCount = 0;
+
+    let interval = setInterval(() => {
+
+        let randomFace = Math.floor(Math.random()*8)+1;
+        dice.src = "dice"+randomFace+".png";
+
+        rollCount++;
+
+        // 15 fast changes = realistic rolling
+        if(rollCount > 30){
+
+            clearInterval(interval);
+
+            let final = Math.floor(Math.random()*6)+1;
+            dice.src = "image"+final+".png";
+
+            dice.classList.remove("roll");
+            rolling = false;
+
+            console.log("Final Dice:", final);
+        }
+
+    }, 10); // speed (lower = faster roll)
+}
+</script>
