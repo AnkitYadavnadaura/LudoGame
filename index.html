@@ -43,11 +43,11 @@ button{
     <div class="ludo-container">
         <div class="row">
                 <div onclick="rollDice(3)" class="dice-box">
-    <img onclick="rollDice" id="dice3" src="dice/image1.png">
+    <img onclick="rollDice(3)" id="dice3" src="dice/image1.png">
 </div>
                 <div class="dice-value"></div>
                 <div onclick="rollDice(4)" class="dice-box">
-    <img onclick="rollDice" id="dice4" src="dice/image1.png">
+    <img onclick="rollDice(4)" id="dice4" src="dice/image1.png">
 </div>
             </div>
         <div class="ludo">
@@ -71,11 +71,11 @@ button{
         <div class="footer">
             <div class="row">
                 <div onclick="rollDice(1)" class="dice-box">
-    <img onclick="rollDice" id="dice1" src="dice/image1.png">
+    <img onclick="rollDice(1)" id="dice1" src="dice/image1.png">
 </div>
                 <div class="dice-value"></div>
                 <div onclick="rollDice(2)" class="dice-box">
-    <img onclick="rollDice" id="dice2" src="dice/image1.png">
+    <img onclick="rollDice(2)" id="dice2" src="dice/image1.png">
 </div>
             </div>
             <h2 class="active-player">Active Player: <span></span> </h2>
@@ -94,6 +94,7 @@ let btn1 = document.querySelector("#dice-btn")
 
 function rollDice(playerId){
     let dice = document.getElementById("dice"+playerId);
+    console.log(dice)
     console.log(activePlayer.textContent.toLowerCase(), "p"+playerId)
     if(playerCount == 2){
         if(playerId == 4){
