@@ -119,7 +119,7 @@ function rollDice(playerId){
     let interval = setInterval(() => {
 
         let randomFace = Math.floor(Math.random()*8)+1;
-        dice.parentElement.innerHTML = `<img src="dice/dice"+${randomFace}+".png"/>`
+        dice.parentElement.innerHTML = `<img id="dice${playerId}" src="dice/dice${randomFace}.png"/>`
 
         rollCount++;
 
