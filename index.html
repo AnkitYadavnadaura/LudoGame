@@ -116,17 +116,16 @@ function rollDice(playerId){
 
     let rollCount = 0;
 
-    let interval = setInterval(() => {
+    let interval = () => {
 
         let randomFace = Math.floor(Math.random()*8)+1;
-        dice.parentElement.innerHTML = `<img id="dice${playerId}" src="dice/dice${randomFace}.png"/>`
-
+        dice.src=`dice/dice${randomFace}.png`
         rollCount++;
 
         // 15 fast changes = realistic rolling
         if(rollCount > 30){
 
-            clearInterval(interval);
+            //clearInterval(interval);
 
             let final = parseInt(document.querySelector(".dice-value").textContent) || 1;
             dice.src = "dice/image"+final+".png";
@@ -136,8 +135,10 @@ function rollDice(playerId){
 
             console.log("Final Dice:", final);
         }
-
-    }, 10); // speed (lower = faster roll)
+        if(rollCount < 30){
+        requestAnimationFrame(interval)
+        }
+    }; // speed (lower = faster roll)
 }
 </script>
 </body>
